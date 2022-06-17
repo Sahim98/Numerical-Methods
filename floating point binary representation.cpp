@@ -40,27 +40,25 @@ void print_float(float x) {
 
 
 int main(int argc, char const *argv[]) {
-	 srand(time(0)) ;
-  int n = 200;
+	printf("\n# Integer representation\n");
+	printf("%d (int) in binary:\n", 1);
+	print_binary(1);
 
-  vector<float> v(n) ;
+	printf("\n# Float representation\n");
+	print_float(-0.0f);
+	print_float(1.0f); //1.0 * 2^0 -> Exp=0, E=0+127
+	// constants INFINITY and NAN found in math.h
+	print_float(INFINITY);
+	print_float(-NAN);
 
-  for(int i = 0 ; i < n ; i++){
-    v[i] = randT(0,1);
-  }
+	printf("\n# Exploring math\n");
+	printf("%g\n", 3.14 +  1e100 - 1e100);
+	printf("%g\n", 3.14 + (1e100 - 1e100));
+	printf("Not associative!\n");
 
-  cout << "Five randomly picked numbers: \n\n" ;
-   
-
-  for(int i = 0 ; i < 5 ; i++){
-     int x = rand()%200 ;
-     float f = v[x];
-     cout <<"float value: " <<  f << endl ;
-     cout <<"Binary value: ";
-	 print_binary_fp(f) ;
-	 cout << endl << endl;
-
-  }
-  cout << endl ;
+	printf("%.20g\n", 100 * (0.1 + 0.2) );
+	printf("%.20g\n", (100 * 0.1) + (100 * 0.2) );
+	printf("Not distributive!\n");
+  
 
 }
